@@ -7,6 +7,8 @@ function LoadMore() {
   const [count, setCount] = useState(0);
   const [disableButton, setDisableButton] = useState(false)
 
+//need to fix
+
   async function fetchProducts() {
     try {
       setLoading(true);

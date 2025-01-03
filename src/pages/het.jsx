@@ -1,5 +1,7 @@
 import { useState } from "react";
 import QRCode from "react-qr-code";
+import HomeButton from "../components/homebutton";
+
 
 function QrCode() {
   const [qrCode, setQrCode] = useState("");
@@ -22,6 +24,7 @@ function QrCode() {
         <button disabled={!input} onClick={handleGenerateQrCode}>
           Generate
         </button>
+        <HomeButton />
       </div>
       <div>
         <QRCode id="qr-code-value" value={qrCode} size={300} bgColor="#fff" />

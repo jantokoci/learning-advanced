@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import "../styles/negystyle.css";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 import HomeButton from "../components/homebutton";
+
+//need to fix
 
 function ImageSlider({ url, limit = 5, page = 1 }) {
   const [images, setImages] = useState([]);

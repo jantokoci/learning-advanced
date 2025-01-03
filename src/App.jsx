@@ -5,8 +5,9 @@ import ColorPicker from "./pages/ketto";
 import Rating from "./pages/harom";
 import ImageSlider from "./pages/negy";
 import LoadMore from "./pages/ot";
-import TreeView from "./pages/hat";
 import QrCode from "./pages/het";
+import ThemeSwitch from "./pages/nyolc";
+import ScrollIndicator from "./pages/kilenc";
 
 function App() {
   return (
@@ -28,8 +29,9 @@ function App() {
             }
           />
           <Route path="/ot" element={<LoadMore />}/>
-          <Route path="/hat" element={<TreeView />}/>
           <Route path="/het" element={<QrCode />}/>
+          <Route path="/nyolc" element={<ThemeSwitch/>}/>
+          <Route path="/kilenc" element={<ScrollIndicator url={'https://dummyjson.com/products?limit=100'}/>}/>
         </Routes>
       </BrowserRouter>
     </>
