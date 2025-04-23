@@ -22,8 +22,7 @@ function App() {
             path="/negy"
             element={
               <ImageSlider
-                url={'https://picsum.photos/v2/list'}
-                page={'1'}
+                url={'https://api.thecatapi.com/v1/images/search'}
                 limit={'10'}
               />
             }

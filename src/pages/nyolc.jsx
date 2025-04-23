@@ -1,5 +1,5 @@
 import useLocalStorage from "../components/useLocalStorage";
-import "../styles/nyolctstyle.css";
+import '../styles/nyolctstyle.css';
 import HomeButton from "../components/homebutton";
 
 

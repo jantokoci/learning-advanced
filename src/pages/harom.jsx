@@ -3,6 +3,7 @@ import HomeButton from "../components/homebutton";
 import "../styles/haromstyle.css";
 import { FaStar } from "react-icons/fa";
 
+//number of stars can be accessed from app.jsx, but here is a base value
 function Rating({ noOfStars = 5 }) {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
@@ -10,7 +11,7 @@ function Rating({ noOfStars = 5 }) {
   function handleClick(getCurrentIndex) {
     setRating(getCurrentIndex);
   }
-
+ //indexes checking where is the mouse, tracking when its enter when its leaving
   function handleMouseEnter(getCurrentIndex) {
     setHover(getCurrentIndex);
   }
