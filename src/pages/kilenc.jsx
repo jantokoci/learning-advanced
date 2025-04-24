@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-
+import "../styles/kilencstyle.css"
 
 // eslint-disable-next-line react/prop-types
 export default function ScrollIndicator({url}) {
@@ -13,7 +13,6 @@ export default function ScrollIndicator({url}) {
             setLoading(true)
             const response = await fetch(getUrl);
             const data = await response.json();
-//asadsadsadsadad
             console.log(data);
 
             if (data && data.products && data.products.length > 0) {
@@ -37,7 +36,7 @@ export default function ScrollIndicator({url}) {
         const howMuchScrolled = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-        setScrollPercent(howMuchScrolled / height);
+        setScrollPercent((howMuchScrolled / height) * 100);
     }
 
     useEffect(() => {
@@ -57,10 +56,11 @@ export default function ScrollIndicator({url}) {
 
     return (
         <div>
-            <h1>Custom Scroll indicator</h1>
-            <div className="scroll-progress-tracking-container">
-                <div className="current-progress-bar" style={{width: `${scrollPercent}%`}}>
+            <div className="top-container"><h1>Custom Scroll indicator</h1>
+                <div className="scroll-progress-tracking-container">
+                    <div className="current-progress-bar" style={{width: `${scrollPercent}%`}}>
 
+                    </div>
                 </div>
             </div>
             <div className="data-container">
