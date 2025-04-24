@@ -17,5 +17,5 @@
 .current-progress-bar {
     height: 10px;
     background: purple;
-    width: 0%;
+    width: 0;
 }
