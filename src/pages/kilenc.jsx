@@ -1,50 +1,66 @@
 import { useEffect, useState } from "react";
 
-//needs fix
 
 export default function ScrollIndicator({ url }) {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  
+const [data, setData] = useState([]);
+const [loading, setLoading] = useState(false);
+const [scrollPercent, setScrollPercent] = useState(0);
 
-  async function fetchData(url) {
-    try {
-      setLoading(true);
-      const response = await fetch(url);
-      const data = await response.json();
-      
-      if (data && data.products && data.products.lenght > 0) {
-        setData(data.products);
-        setLoading(false);
-      }
-    } catch (e) {
-      console.log(e);
-      setError(e.message);
+async function  fetchData(getUrl) {
+  try {
+    setLoading(true)
+    const response = await fetch(getUrl);
+    const data = await response.json();
+
+    console.log(data);
+
+    if(data && data.products && data.products.length > 0){
+      setData(data.products);
       setLoading(false);
     }
+    
+  } catch (e) {
+    console.log(e);
+    setLoading(false);
   }
+}
 
-  useEffect(() => {
-    fetchData(url);
-  }, [url]);
+useEffect(()=>{
+  fetchData(url);
+}, [url])
 
-console.log(data, error, loading)
+function handleScrollPercent(){
+  //console.log(document.body.scrollTop, document.documentElement.scrollTop, document.documentElement.scrollHeight, document.documentElement.clientHeight);
 
-if(loading)
-     {
-        return <p>im loading mother fucker</p>
-     }
-else
+  const howMuchScrolled = document.body.scrollTop || document.documentElement.scrollTop;  
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+  setScrollPercent(howMuchScrolled/height);
+}
+
+useEffect(()=>{
+window.addEventListener('scroll', handleScrollPercent)
+
+return ()=> {
+  window.removeEventListener('scroll', () => {})
+}
+}, [])
+
+if(loading){
+  return <div>The website is loading, please wait!</div>
+}
+
+console.log(scrollPercent);
+
   return (
+  <div>
+    <h1>Custom Scroll indicator</h1>
     <div>
-      <h1>custom scroll indicator</h1>
-      <div className="scroll-cont">
-        {
-            data && data.length > 0 ?
-            data.map((dataItem) => <p>{dataItem.title}</p>)
-            : null
-        }
-      </div>
+      {
+        data && data.length > 0 ? data.map((item) => <p key={item.id}>{item.title}</p>) : null
+      }
     </div>
-  );
+    </div>
+  )
 }

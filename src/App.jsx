@@ -32,6 +32,7 @@ function App() {
           />
           <Route path="/ot" element={<LoadMore />}/>
           <Route path="/hat" element={<TreeView manus={menus}/>}/>
+          
           <Route path="/hat2" element={<TreeView manus={menus2}/>}/>
           <Route path="/het" element={<QrCode />}/>
           <Route path="/nyolc" element={<ThemeSwitch/>}/>
