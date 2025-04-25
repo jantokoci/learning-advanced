@@ -13,6 +13,9 @@ import menus from "./components/datahat";
 import menus2 from "./components/datahat2";
 import TabTest from "./components/tiz/tab-test.jsx";
 import ModalTest from "./components/tizenegy/modal-test.jsx";
+import SearchAutocomplete from "./pages/search-autocomplete.jsx";
+
+//import NbaApiCall from "./components/nbaapicall.jsx";
 
 function App() {
     return (
@@ -42,6 +45,8 @@ function App() {
                            element={<ScrollIndicator url={'https://dummyjson.com/products?limit=100'}/>}/>
                     <Route path="/tizmiafa" element={<TabTest/>}/>
                     <Route path="/11" element={<ModalTest/>}/>
+                    <Route path="/12" element={<SearchAutocomplete/>}/>
+                    {/*<Route path="/nba" element={<NbaApiCall/>}/>*/}
                 </Routes>
             </BrowserRouter>
         </>

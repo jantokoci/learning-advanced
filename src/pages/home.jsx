@@ -23,6 +23,7 @@ function Home() {
                 <button onClick={() => navigate('kilenc')}>Scroll Indicator</button>
                 <button onClick={() => navigate('tizmiafa')}>Tabs</button>
                 <button onClick={() => navigate('11')}>ModalPopup</button>
+                <button onClick={() => navigate('12')}>Search Autocomplete</button>
             </div>
         </>
     );
